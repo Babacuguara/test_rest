@@ -14,3 +14,15 @@ BANCO DE DADOS FAKE
 
 
 
+SUBIR GITHUB
+* abre o terminal do VSCode
+ - git bash
+ - apaga o powershel
+* git init
+* git status
+* git add . => se fizer alguma alteração no codigo ai faz de novo
+* git commit -m "primeiro commit"
+* git branch -M main
+* git remote add origin https://github.com/Babacuguara/novo.git
+* git push -u origin main
+ 
