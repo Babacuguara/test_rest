@@ -1,0 +1,168 @@
+<script setup>
+import { ref } from 'vue';
+
+const produto = ref({
+  codigo: '',
+  nome: '',
+  descricao: '',
+  unidade: '',
+  quantidade: 0,
+  foto: null,
+  fotoPreview: ''
+});
+
+const produtos = ref([]);
+
+const adicionarProduto = () => {
+  if (produto.value.codigo && produto.value.nome && produto.value.quantidade > 0) {
+    produtos.value.push({ ...produto.value, id: Date.now() });
+    produto.value = { codigo: '', nome: '', descricao: '', unidade: '', quantidade: 0, foto: null, fotoPreview: '' };
+  }
+};
+
+const removerProduto = (id) => {
+  produtos.value = produtos.value.filter(produto => produto.id !== id);
+};
+
+const handleFotoUpload = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      produto.value.foto = file;
+      produto.value.fotoPreview = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+};
+</script>
+
+<template>
+  <div class="container">
+    <h2>Cadastro de Produtos</h2>
+
+    <form @submit.prevent="adicionarProduto">
+        <div class="cadastro">
+            <label for="">Código</label>
+            <input v-model="produto.codigo" placeholder="Código" required />
+        </div>
+        <div class="cadastro">
+            <label for="">Nome</label>
+            <input v-model="produto.nome" placeholder="Nome" required />
+        </div>
+        <div class="cadastro">
+            <label for="">Descrição</label>
+            <textarea v-model="produto.descricao" placeholder="Descrição"></textarea>
+        </div>
+        <div class="cadastro">
+            <label for="">Unidade</label>
+            <input v-model="produto.unidade" placeholder="Unidade (ex: kg, unidade, litro)" required />
+        </div>
+        <div class="cadastro">
+            <label for="">Quantidade</label>
+            <input v-model.number="produto.quantidade" type="number" placeholder="Quantidade" required />
+        </div>
+        <div class="cadastro">
+            <label for="">Imagem do Produto</label>
+            <input type="file" @change="handleFotoUpload" accept="image/*" />
+        </div>
+        <div class="cadastro">
+            <img v-if="produto.fotoPreview" :src="produto.fotoPreview" alt="Pré-visualização" class="preview" />
+        </div> 
+        
+
+        <button type="submit">Adicionar Produto</button>
+    </form>
+
+    <table v-if="produtos.length">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Unidade</th>
+          <th>Quantidade</th>
+          <th>Foto</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="p in produtos" :key="p.id">
+          <td>{{ p.codigo }}</td>
+          <td>{{ p.nome }}</td>
+          <td>{{ p.descricao }}</td>
+          <td>{{ p.unidade }}</td>
+          <td>{{ p.quantidade }}</td>
+          <td>
+            <img v-if="p.fotoPreview" :src="p.fotoPreview" alt="Foto do produto" class="preview" />
+          </td>
+          <td>
+            <button @click="removerProduto(p.id)">Remover</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p v-else>Nenhum produto cadastrado.</p>
+  </div>
+</template>
+
+<style scoped>
+.container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+.cadastro{
+    display: flex;
+    padding: 10px;
+    
+}
+label{
+    padding: 5px;
+    background-color:rgba(255, 228, 196, 0.377);
+    align-items: center;
+}
+input, textarea {
+  /* display: block; */
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border: 30px;
+  text-align: center;
+  background-color: rgba(206, 206, 13, 0.384);
+  border-radius: 5px;
+}
+input {
+    border: 10px;
+}
+button {
+  background: blue;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkblue;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.preview {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: cover;
+}
+</style>

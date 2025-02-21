@@ -1,0 +1,13 @@
+* baixar o projeto do github
+
+
+* npm instal bcrypt --save => instala a biblioteca de seguranda da senha
+
+* npm install
+* npm install cors --save => funciona domo middleware
+
+
+
+RODAR O APIREST
+* node index
+

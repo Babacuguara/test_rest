@@ -1,0 +1,5 @@
+git init = enter
+git add . = enter
+git commit -m "feat: create api nomeRepositorio = enter
+git push diretorio(http://github.com/....)
+

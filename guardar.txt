@@ -1,0 +1,195 @@
+
+
+.cardapio__container {
+    padding: 1rem 1rem;
+    margin-top: var(--mb-6);
+    
+}
+
+.button_voltar{
+    margin-top: 0px;
+    text-align: center;
+}
+.botao{
+    background-color: #e23a3a57;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(251, 1, 1, 0.768);
+    margin-top: 2.5rem;
+    transition: 0.4s;
+    background-color: #e23a3a57;
+    
+}
+
+.card:hover {
+    transform: scale(1.1);
+} 
+
+.card img {
+    border-radius: 8px 8px 0 0;
+    height: 300px;
+}
+.card__img{
+    align-items: center;
+    text-align: center;
+}
+.card__data {
+    height: 6.5rem;
+    
+}
+
+.card__data h3 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    color: #ffa500;
+    height: 60px;
+    background: #e20d09b0;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.card__data .card__descripition {
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0px;
+
+}
+
+
+.card__data small {
+    font-weight: 300;
+    font-size: 0.938rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+       
+}
+
+.card__preci {
+    margin-top: 4rem;
+    text-align-last: center;
+    background-color:  #fe0703d5;;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+
+.card__preci span {
+    font-weight: 700;
+    font-size: 1.25rem;
+    /* position: relative; */
+    left: 1rem;
+    bottom: 0rem;
+    color: #ffa500;
+
+    /* border: 5px solid #f90707; */
+}
+
+/* .card__cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 1.6rem;
+    color: var(--light-color);
+    background-color: var(--first-color);
+    border-radius: 6px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+} */
+
+.card__cart:hover {
+    background-color: #4a05f9;
+
+}
+
+.bx {
+    border: 1px solid #fe0703;
+    width: 10%;
+    height: 10%;
+}
+
+/*Amuentar fotos*/
+ 
+#galeria > div{
+    float: left;
+    width: 33%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card img{
+    width: 100%;
+     display: block;
+
+}
+
+
+/* .card__descripition {
+    display: none;
+} */
+.fechar_div {
+    align-items: center;
+    text-align: center;
+}
+.fechar{
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    display: none;
+    color: black;
+    font-size: larger;
+    color: #fe0703;
+}
+
+.pessoas {
+    width: 52px;
+    height: 70px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    display: none;
+    padding: 2px;
+    top: 495px;
+    font-size: 10px;
+    right: 10px;
+    position: fixed;
+}
+
+.card:target{
+    position: fixed;
+    width: 100%;
+    top: 25px;
+    left: 25px;
+    padding: 10px;
+    border: solid 1px #333;
+    box-shadow: 0 0 25px #000;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.card:target .card__descripition{
+    display: block;
+}
+.card:target .fechar{
+    display: block;
+}
+.card:target .pessoas{
+    display: block;
+}
+.cardapio_container {
+    padding: 0;
+    grid-template-columns: repeat(4, 1fr);
+}

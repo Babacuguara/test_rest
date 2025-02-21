@@ -1,0 +1,16 @@
+* npm create vue@latest 
+* npm init vue@latest
+* npm install => dentro da pasta do projeto
+* npm run dev => executa o projeto
+*
+
+BANCO DE DADOS FAKE
+* npm install json-server
+* npx json-server --watch /bancodedados/produtos.json
+* json-server --watch /bancodedados/produtos.json => colocar este comando no package.json
+* npm run backend => roda o banco de dados
+* npm install axios
+
+
+
+
