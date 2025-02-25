@@ -4,7 +4,7 @@
         <div class="home_data">
             <h1 class="home_title">Bem vindo ao<span
                     class="logo"><br>Restaurante
-                    Babaçuguará</span></h1><br>
+                    Babaçug uará</span></h1><br>
             <h2 class="home_subtitle">Gosto tanto de comer, que meu
                 lugar preferido é o Restaurante Babaçuguará
             </h2>
